@@ -32,34 +32,34 @@ double calc(double x[], char z[], int n)
 {
     double ans = 0;
 
-    char b[(n-1)];
+    char y[(n-1)];
     for (int i = 0; i < (n-1); i++)
     {
-        b[i]=z[i];
+        y[i]=z[i];
     }
     
     for (int i = 0; i < (n-1); i++)
     {
-        if (b[i]=='/')
+        if (y[i]=='/')
         {
             x[i] = (x[i] / x[i+1]);
             x[i+1] = 0;
-            b[i] = '+';
+            y[i] = '+';
         }
     }
     for (int i = 0; i < (n-1); i++)
     {
-        if (b[i]=='*' && z[i-1]=='/')
+        if (y[i]=='*' && z[i-1]=='/')
         {
             x[i+1] = (x[i-1] * x[i+1]);
             x[i-1] = 0;
-            b[i] = '+';
+            y[i] = '+';
         }
-        else if (b[i]=='*')
+        else if (y[i]=='*')
         {
             x[i+1] = (x[i] * x[i+1]);
             x[i] = 0;
-            b[i] = '+';
+            y[i] = '+';
         }
     }
     for (int i = 0; i < n; i++)
@@ -68,11 +68,11 @@ double calc(double x[], char z[], int n)
     }
     for (int i = 0; i < (n-1); i++)
     {
-        if (b[i]=='-' && x[i+1]==0)
+        if (y[i]=='-' && x[i+1]==0)
         {
             ans -= x[i+2]*2;
         }
-        else if (b[i]=='-')
+        else if (y[i]=='-')
         {
             ans -= x[i+1]*2;
         }

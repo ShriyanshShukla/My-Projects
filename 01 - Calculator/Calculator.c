@@ -40,7 +40,13 @@ double calc(double x[], char z[], int n)
     
     for (int i = 0; i < (n-1); i++)
     {
-        if (y[i]=='/')
+        if (y[i]=='/' && z[i-1]=='/')
+        {
+            x[i+1] = (x[i-1] / x[i+1]);
+            x[i-1] = 0;
+            y[i] = '+';
+        }
+        else if (y[i]=='/')
         {
             x[i] = (x[i] / x[i+1]);
             x[i+1] = 0;
